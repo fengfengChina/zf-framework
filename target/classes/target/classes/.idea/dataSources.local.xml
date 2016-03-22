@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="MySQL - wholesale@120.24.240.62" uuid="e3a932a2-ba27-4105-95b8-46f7fbc97091">
+      <secret-storage>master_key</secret-storage>
+      <user-name>handong</user-name>
+      <schema-pattern>wholesale.*</schema-pattern>
+      <default-schemas>wholesale.*</default-schemas>
+    </data-source>
+  </component>
+</project>
