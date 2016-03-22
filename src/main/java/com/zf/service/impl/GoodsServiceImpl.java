@@ -2,6 +2,7 @@ package com.zf.service.impl;
 
 import com.zf.dao.GoodsRepository;
 import com.zf.domian.HdGoods;
+import com.zf.domian.HdGoodsParameter;
 import com.zf.service.GoodsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -9,6 +10,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 /**
  * GoodsServiceImpl
@@ -35,6 +37,11 @@ public class GoodsServiceImpl implements GoodsService {
     @Override
     public Page<HdGoods> getSearchGoods(String keyword) {
 //        return goodsRepository.find;
+        return null;
+    }
+
+    @Override
+    public List<HdGoodsParameter> getGoodsParam(Integer goods_id) {
         return null;
     }
 
