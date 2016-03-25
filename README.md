@@ -19,4 +19,4 @@ you can get token like this:
 >`{"access_token":"ef66bdda-d674-4a13-b491-9a20e075823c","token_type":"bearer","refresh_token":"c4ada304-a654-4189-838f-1d49f61245a5","expires_in":42422,"scope":"read write"}`
 
 and second you can get resource from secured API like:
-> `curl localhost:8090/api/user/name -d "grant_type=password&scope=read write&username=xxx1&password=111x" -H "Authorization:bearer ef66bdda-d674-4a13-b491-9a20e075823c"`
+> `curl localhost:8090/api/user/name -H "Authorization:bearer ef66bdda-d674-4a13-b491-9a20e075823c"`
