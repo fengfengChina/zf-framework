@@ -17,8 +17,8 @@ import java.lang.reflect.Method;
  * @author zf
  * @date 16/3/21
  */
-@Aspect
-@Component("securityAspect")
+//@Aspect
+//@Component("securityAspect")
 public class SecurityAspect {
 
     private static final String DEFAULT_TOKEN_NAME = "Token";

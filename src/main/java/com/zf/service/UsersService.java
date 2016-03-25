@@ -20,4 +20,6 @@ public interface UsersService {
     HdUsers findByWechatId(String weixin_id);
 
     boolean addUser( String weixin_id);
+
+    HdUsers findByUserName(String username);
 }
