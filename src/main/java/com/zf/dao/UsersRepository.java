@@ -27,6 +27,8 @@ public interface UsersRepository extends PagingAndSortingRepository<HdUsers, Int
 
     HdUsers findByWeixinId(String weixin_id);
 
+    HdUsers findByUserName(String username);
+
 
 //    @Modifying
 //    @Transactional

@@ -66,5 +66,10 @@ public class UsersServiceImpl implements UsersService {
         return false;
     }
 
+    @Override
+    public HdUsers findByUserName(String username) {
+        return usersRepository.findByUserName(username);
+    }
+
 
 }

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.security.Principal;
 
 /**
  * UsersController
@@ -20,10 +21,20 @@ import java.io.IOException;
  * @date 16/3/20
  */
 @RestController
-@RequestMapping("/app/users")
+@RequestMapping("/api/user")
 public class UsersController {
     @Autowired
     UsersService usersService;
+
+    /**
+     * rest test, return name
+     * @param principal 权限
+     * @return name
+     */
+    @RequestMapping("/name")
+    public String name(Principal principal) {
+        return principal.getName();
+    }
 
     /**
      * 登录
