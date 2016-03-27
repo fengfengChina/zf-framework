@@ -1,5 +1,6 @@
-package com.zf.base;
+package com.zf.base.exception;
 
+import com.zf.base.Response;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.web.HttpMediaTypeNotSupportedException;

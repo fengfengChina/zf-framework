@@ -1,4 +1,4 @@
-package com.zf.utils;
+package com.zf.base.utils;
 
 /**
  * ServiceException
