@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @date 16/3/19
  */
 @RestController
-@RequestMapping("/app/area")
+@RequestMapping("/api/area")
 public class AreaController {
     @Autowired
     AreaService areaService;

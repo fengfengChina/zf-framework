@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.Base64Utils;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpSession;
@@ -101,8 +102,8 @@ public class UsersController {
      * @param session
      * @return
      */
-    @RequestMapping("/wechatLogin/{weixin_id}")
-    public Object wechatLogin(@PathVariable String weixin_id, HttpSession session) {
+    @RequestMapping("/wechatLogin")
+    public Object wechatLogin(@RequestParam(value = "weixin_id") String weixin_id, HttpSession session) {
         HdUsers users = usersService.findByWechatId(weixin_id);
         if (users != null) {
             DefalutTokenManager defalutTokenManager = new DefalutTokenManager();

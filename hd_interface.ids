@@ -1,0 +1,657 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - wholesale@120.24.240.62" uuid="32eeb0b5-1f68-4808-ab7d-174a419e337c">
+    <database-info product="MySQL" version="5.7.9" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.34 ( Revision: jess.balint@oracle.com-20141014163213-wqbwpf1ok2kvo1om )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
+    <schema name="" catalog="wholesale"/>
+    <table name="hd_ad" schema="" catalog="wholesale" type="TABLE">
+      <column name="ad_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="ad_position" sqlType="VARCHAR" precision="10" scale="0" nullable="true" jdbcType="12"/>
+      <column name="ad_name" sqlType="VARCHAR" precision="60" scale="0" nullable="true" jdbcType="12"/>
+      <column name="ad_img" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="ad_type" sqlType="VARCHAR" precision="10" scale="0" nullable="true" jdbcType="12"/>
+      <column name="link_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="is_show" sqlType="VARCHAR" precision="5" scale="0" nullable="true" jdbcType="12"/>
+      <column name="ad_order" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="create_time" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="ad_id"/>
+    </table>
+    <table name="hd_area" schema="" catalog="wholesale" type="TABLE">
+      <column name="area_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="area_name" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <column name="province_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="city_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="area_id"/>
+    </table>
+    <table name="hd_article" schema="" catalog="wholesale" type="TABLE">
+      <column name="article_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="at_id" sqlType="VARCHAR" precision="32" scale="0" nullable="true" jdbcType="12"/>
+      <column name="title" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <column name="content" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="author" sqlType="VARCHAR" precision="16" scale="0" nullable="true" jdbcType="12"/>
+      <column name="is_show" sqlType="VARCHAR" precision="5" scale="0" nullable="true" jdbcType="12"/>
+      <column name="create_time" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="shop_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="article_id"/>
+    </table>
+    <table name="hd_article_type" schema="" catalog="wholesale" type="TABLE">
+      <column name="at_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="at_name" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="at_id"/>
+    </table>
+    <table name="hd_audit_config" schema="" catalog="wholesale" type="TABLE">
+      <column name="ac_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="ac_step" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="ac_name" sqlType="VARCHAR" precision="32" scale="0" nullable="true" jdbcType="12"/>
+      <column name="is_check" sqlType="VARCHAR" precision="5" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="ac_id"/>
+    </table>
+    <table name="hd_brand" schema="" catalog="wholesale" type="TABLE">
+      <column name="brand_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="gt_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="gt_id_path" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="brand_name" sqlType="VARCHAR" precision="32" scale="0" nullable="true" jdbcType="12"/>
+      <column name="brand_logo" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="brand_desc" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="create_time" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="brand_id"/>
+    </table>
+    <table name="hd_cart" schema="" catalog="wholesale" type="TABLE">
+      <column name="cart_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="user_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="session_id" sqlType="VARCHAR" precision="32" scale="0" nullable="true" jdbcType="12"/>
+      <column name="goods_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="goods_sn" sqlType="VARCHAR" precision="32" scale="0" nullable="true" jdbcType="12"/>
+      <column name="goods_number" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="gs_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="create_time" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="cart_id"/>
+    </table>
+    <table name="hd_city" schema="" catalog="wholesale" type="TABLE">
+      <column name="city_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="city_name" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="province_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="city_id"/>
+    </table>
+    <table name="hd_dialogue_config" schema="" catalog="wholesale" type="TABLE">
+      <column name="dc_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="dc_qq" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="dc_id"/>
+    </table>
+    <table name="hd_goods" schema="" catalog="wholesale" type="TABLE">
+      <column name="goods_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="goods_sn" sqlType="VARCHAR" precision="32" scale="0" nullable="true" jdbcType="12"/>
+      <column name="goods_name" sqlType="VARCHAR" precision="120" scale="0" nullable="true" jdbcType="12"/>
+      <column name="gat_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="gt_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="gt_id_path" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="brand_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="shop_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="province_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="goods_source" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <column name="market_price" sqlType="DOUBLE" precision="22" scale="0" nullable="true" jdbcType="8"/>
+      <column name="standard_price" sqlType="DOUBLE" precision="22" scale="0" nullable="true" jdbcType="8"/>
+      <column name="unit_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="is_real" sqlType="VARCHAR" precision="5" scale="0" nullable="true" jdbcType="12" def="J3RydWUn"/>
+      <column name="is_on_sale" sqlType="VARCHAR" precision="5" scale="0" nullable="true" jdbcType="12" def="J3RydWUn"/>
+      <column name="is_vip" sqlType="VARCHAR" precision="5" scale="0" nullable="true" jdbcType="12" def="J2ZhbHNlJw=="/>
+      <column name="goods_point" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="create_user" sqlType="VARCHAR" precision="32" scale="0" nullable="true" jdbcType="12"/>
+      <column name="create_time" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="update_user" sqlType="VARCHAR" precision="32" scale="0" nullable="true" jdbcType="12"/>
+      <column name="update_time" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="is_delete" sqlType="VARCHAR" precision="5" scale="0" nullable="true" jdbcType="12" def="J2ZhbHNlJw=="/>
+      <column name="audit_step" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="audit_user" sqlType="VARCHAR" precision="32" scale="0" nullable="true" jdbcType="12"/>
+      <column name="remark" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="goods_id"/>
+    </table>
+    <table name="hd_goods_activity" schema="" catalog="wholesale" type="TABLE">
+      <column name="ga_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="ga_name" sqlType="VARCHAR" precision="60" scale="0" nullable="true" jdbcType="12"/>
+      <column name="begin_time" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="end_time" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="ga_range" sqlType="VARCHAR" precision="10" scale="0" nullable="true" jdbcType="12"/>
+      <column name="range_ids" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="min_amount" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="ga_type" sqlType="VARCHAR" precision="10" scale="0" nullable="true" jdbcType="12"/>
+      <column name="type_ext" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="ga_order" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="ga_id"/>
+    </table>
+    <table name="hd_goods_associated" schema="" catalog="wholesale" type="TABLE">
+      <column name="ga_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="goods_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="associa_ids" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="true" jdbcType="-1"/>
+      <primary-key name="PRIMARY" columns="ga_id"/>
+    </table>
+    <table name="hd_goods_attr" schema="" catalog="wholesale" type="TABLE">
+      <column name="ga_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="goods_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="gat_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="gan_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="gav_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="is_sku" sqlType="VARCHAR" precision="5" scale="0" nullable="true" jdbcType="12"/>
+      <column name="sku_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="create_time" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="ga_id"/>
+    </table>
+    <table name="hd_goods_attr_name" schema="" catalog="wholesale" type="TABLE">
+      <column name="gan_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="gan_name" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="gat_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="optional" sqlType="VARCHAR" precision="10" scale="0" nullable="true" jdbcType="12"/>
+      <column name="gan_order" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="create_time" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="gan_id"/>
+    </table>
+    <table name="hd_goods_attr_type" schema="" catalog="wholesale" type="TABLE">
+      <column name="gat_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="gat_name" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="gat_order" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="create_time" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="gat_id"/>
+    </table>
+    <table name="hd_goods_attr_value" schema="" catalog="wholesale" type="TABLE">
+      <column name="gav_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="gav_name" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="gan_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="gat_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="gt_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="gav_order" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="create_time" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="gav_id"/>
+    </table>
+    <table name="hd_goods_brand" schema="" catalog="wholesale" type="TABLE">
+      <column name="gb_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="gb_name" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="gb_logo" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="gb_id"/>
+    </table>
+    <table name="hd_goods_comment" schema="" catalog="wholesale" type="TABLE">
+      <column name="gc_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="goods_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="user_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="comment" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="comment_type" sqlType="VARCHAR" precision="10" scale="0" nullable="true" jdbcType="12"/>
+      <column name="comment_time" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="reply_name" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="reply_comment" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="true" jdbcType="-1"/>
+      <primary-key name="PRIMARY" columns="gc_id"/>
+    </table>
+    <table name="hd_goods_detail" schema="" catalog="wholesale" type="TABLE">
+      <column name="gd_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="goods_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="detail" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="true" jdbcType="-1"/>
+      <primary-key name="PRIMARY" columns="gd_id"/>
+    </table>
+    <table name="hd_goods_document" schema="" catalog="wholesale" type="TABLE">
+      <column name="gd_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="goods_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="document_url" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="gd_id"/>
+    </table>
+    <table name="hd_goods_group" schema="" catalog="wholesale" type="TABLE">
+      <column name="gg_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="goods_ids" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="group_price" sqlType="DOUBLE" precision="22" scale="0" nullable="true" jdbcType="8"/>
+      <primary-key name="PRIMARY" columns="gg_id"/>
+    </table>
+    <table name="hd_goods_img" schema="" catalog="wholesale" type="TABLE">
+      <column name="gi_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="goods_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="img_url" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="img_width" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="img_height" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="thumb_url" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="thumb_width" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="thumb_height" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="img_order" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="gi_id"/>
+    </table>
+    <table name="hd_goods_keywords" schema="" catalog="wholesale" type="TABLE">
+      <column name="gk_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="goods_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="keyword_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="gk_id"/>
+    </table>
+    <table name="hd_goods_parameter" schema="" catalog="wholesale" type="TABLE">
+      <column name="gp_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="goods_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="gp_text" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="gp_type" sqlType="VARCHAR" precision="15" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="gp_id"/>
+    </table>
+    <table name="hd_goods_sales" schema="" catalog="wholesale" type="TABLE">
+      <column name="gs_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="goods_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="total_sales" sqlType="DOUBLE" precision="22" scale="0" nullable="true" jdbcType="8"/>
+      <column name="sales_count" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="ga_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="gs_id"/>
+    </table>
+    <table name="hd_goods_sales_item" schema="" catalog="wholesale" type="TABLE">
+      <column name="gsi_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="shop_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="goods_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="goods_price" sqlType="DOUBLE" precision="22" scale="0" nullable="true" jdbcType="8"/>
+      <column name="sales_time" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="user_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="gs_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="goods_point" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="gsi_use_point" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="gg_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="gsi_id"/>
+    </table>
+    <table name="hd_goods_sku" schema="" catalog="wholesale" type="TABLE">
+      <column name="gs_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="gs_sn" sqlType="VARCHAR" precision="32" scale="0" nullable="true" jdbcType="12"/>
+      <column name="goods_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="extra_price" sqlType="DOUBLE" precision="22" scale="0" nullable="true" jdbcType="8"/>
+      <column name="goods_store" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="gs_name" sqlType="VARCHAR" precision="32" scale="0" nullable="true" jdbcType="12"/>
+      <column name="gs_string" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="create_time" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="gs_id"/>
+    </table>
+    <table name="hd_goods_type" schema="" catalog="wholesale" type="TABLE">
+      <column name="gt_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="gt_name" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="parent_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="id_path" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="gt_order" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="gt_img" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="gt_level" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="is_show" sqlType="VARCHAR" precision="5" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="gt_id"/>
+    </table>
+    <table name="hd_goods_visit" schema="" catalog="wholesale" type="TABLE">
+      <column name="gv_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="goods_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="visit_time" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="visit_ip" sqlType="VARCHAR" precision="15" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="gv_id"/>
+    </table>
+    <table name="hd_keyword" schema="" catalog="wholesale" type="TABLE">
+      <column name="keyword_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="keyword" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="keyword_id"/>
+    </table>
+    <table name="hd_keywords_statistics" schema="" catalog="wholesale" type="TABLE">
+      <column name="ks_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="ks_name" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="ks_count" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="ks_id"/>
+    </table>
+    <table name="hd_log" schema="" catalog="wholesale" type="TABLE">
+      <column name="log_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="log_time" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="sys_user_id" sqlType="VARCHAR" precision="32" scale="0" nullable="true" jdbcType="12"/>
+      <column name="sys_user_name" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <column name="log_action" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="log_params" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="ip_address" sqlType="VARCHAR" precision="15" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="log_id"/>
+    </table>
+    <table name="hd_order" schema="" catalog="wholesale" type="TABLE">
+      <column name="order_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="order_sn" sqlType="VARCHAR" precision="32" scale="0" nullable="true" jdbcType="12"/>
+      <column name="user_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="order_status" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="uad_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="address" sqlType="VARCHAR" precision="500" scale="0" nullable="true" jdbcType="12"/>
+      <column name="postcode" sqlType="VARCHAR" precision="6" scale="0" nullable="true" jdbcType="12"/>
+      <column name="receiver" sqlType="VARCHAR" precision="16" scale="0" nullable="true" jdbcType="12"/>
+      <column name="receiver_phone" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="remark" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="sc_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="sc_name" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="pc_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="pc_name" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="is_split" sqlType="VARCHAR" precision="5" scale="0" nullable="true" jdbcType="12"/>
+      <column name="invoice_title" sqlType="VARCHAR" precision="120" scale="0" nullable="true" jdbcType="12"/>
+      <column name="goods_amount" sqlType="DOUBLE" precision="22" scale="0" nullable="true" jdbcType="8"/>
+      <column name="shipping_price" sqlType="DOUBLE" precision="22" scale="0" nullable="true" jdbcType="8"/>
+      <column name="actual_price" sqlType="DOUBLE" precision="22" scale="0" nullable="true" jdbcType="8"/>
+      <column name="point_pay" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="point_money" sqlType="DOUBLE" precision="22" scale="0" nullable="true" jdbcType="8"/>
+      <column name="order_amount" sqlType="DOUBLE" precision="22" scale="0" nullable="true" jdbcType="8"/>
+      <column name="order_source" sqlType="VARCHAR" precision="10" scale="0" nullable="true" jdbcType="12"/>
+      <column name="tax" sqlType="DOUBLE" precision="22" scale="0" nullable="true" jdbcType="8"/>
+      <column name="discount" sqlType="DOUBLE" precision="22" scale="0" nullable="true" jdbcType="8"/>
+      <column name="create_time" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="order_id"/>
+    </table>
+    <table name="hd_order_action" schema="" catalog="wholesale" type="TABLE">
+      <column name="oa_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="order_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="oa_user" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="oa_sys_user" sqlType="VARCHAR" precision="32" scale="0" nullable="true" jdbcType="12"/>
+      <column name="order_status" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="action_note" sqlType="VARCHAR" precision="10" scale="0" nullable="true" jdbcType="12"/>
+      <column name="action_time" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="oa_id"/>
+    </table>
+    <table name="hd_order_goods" schema="" catalog="wholesale" type="TABLE">
+      <column name="og_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="order_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="goods_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="goods_name" sqlType="VARCHAR" precision="120" scale="0" nullable="true" jdbcType="12"/>
+      <column name="goods_sn" sqlType="VARCHAR" precision="32" scale="0" nullable="true" jdbcType="12"/>
+      <column name="goods_amount" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="market_price" sqlType="DOUBLE" precision="22" scale="0" nullable="true" jdbcType="8"/>
+      <column name="standard_price" sqlType="DOUBLE" precision="22" scale="0" nullable="true" jdbcType="8"/>
+      <column name="gs_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="gs_name" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="extra_price" sqlType="DOUBLE" precision="22" scale="0" nullable="true" jdbcType="8"/>
+      <column name="create_time" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="og_id"/>
+    </table>
+    <table name="hd_pay_config" schema="" catalog="wholesale" type="TABLE">
+      <column name="pc_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="pc_code" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="pc_name" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="pc_order" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="pc_config" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="enabled" sqlType="VARCHAR" precision="5" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="pc_id"/>
+    </table>
+    <table name="hd_perform_config" schema="" catalog="wholesale" type="TABLE">
+      <column name="pc_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="pc_ranking" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="discount" sqlType="DOUBLE" precision="22" scale="0" nullable="true" jdbcType="8"/>
+      <primary-key name="PRIMARY" columns="pc_id"/>
+    </table>
+    <table name="hd_perform_history_config" schema="" catalog="wholesale" type="TABLE">
+      <column name="phc_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="begin_time" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="end_time" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="discount" sqlType="DOUBLE" precision="22" scale="0" nullable="true" jdbcType="8"/>
+      <primary-key name="PRIMARY" columns="phc_id"/>
+    </table>
+    <table name="hd_perform_ranking" schema="" catalog="wholesale" type="TABLE">
+      <column name="pr_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="user_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="total_sales" sqlType="DOUBLE" precision="22" scale="0" nullable="true" jdbcType="8"/>
+      <column name="pr_ranking" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="ranking_type" sqlType="VARCHAR" precision="10" scale="0" nullable="true" jdbcType="12"/>
+      <column name="create_time" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="pr_id"/>
+    </table>
+    <table name="hd_point_config" schema="" catalog="wholesale" type="TABLE">
+      <column name="pc_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="point_exchange" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="money_exchange" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="pc_id"/>
+    </table>
+    <table name="hd_province" schema="" catalog="wholesale" type="TABLE">
+      <column name="province_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="province_name" sqlType="VARCHAR" precision="10" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="province_id"/>
+    </table>
+    <table name="hd_rate_config" schema="" catalog="wholesale" type="TABLE">
+      <column name="rc_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="annual_rate" sqlType="DOUBLE" precision="22" scale="0" nullable="true" jdbcType="8"/>
+      <primary-key name="PRIMARY" columns="rc_id"/>
+    </table>
+    <table name="hd_search_keywords" schema="" catalog="wholesale" type="TABLE">
+      <column name="sk_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="sk_name" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="sk_order" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="sk_id"/>
+    </table>
+    <table name="hd_shipping_config" schema="" catalog="wholesale" type="TABLE">
+      <column name="sc_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="sc_code" sqlType="VARCHAR" precision="32" scale="0" nullable="true" jdbcType="12"/>
+      <column name="sc_name" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="sc_order" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="sc_config" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="enabled" sqlType="VARCHAR" precision="5" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="sc_id"/>
+    </table>
+    <table name="hd_shop" schema="" catalog="wholesale" type="TABLE">
+      <column name="shop_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="brand_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="shop_name" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <column name="shop_logo" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="shop_owner" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="create_time" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="collection_num" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="visit_num" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="remark" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="website" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="shop_id"/>
+    </table>
+    <table name="hd_shop_brand" schema="" catalog="wholesale" type="TABLE">
+      <column name="sb_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="shop_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="brand_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="sb_id"/>
+    </table>
+    <table name="hd_shop_goods_type" schema="" catalog="wholesale" type="TABLE">
+      <column name="sgt_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="shop_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="gt_id" sqlType="LONGBLOB" precision="2147483647" scale="0" nullable="true" jdbcType="-4"/>
+      <primary-key name="PRIMARY" columns="sgt_id"/>
+    </table>
+    <table name="hd_shop_sales" schema="" catalog="wholesale" type="TABLE">
+      <column name="ss_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="shop_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="total_sales" sqlType="DOUBLE" precision="22" scale="0" nullable="true" jdbcType="8"/>
+      <column name="sales_count" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="ss_id"/>
+    </table>
+    <table name="hd_shop_visit" schema="" catalog="wholesale" type="TABLE">
+      <column name="sv_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="shop_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="visit_time" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="visit_ip" sqlType="VARCHAR" precision="15" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="sv_id"/>
+    </table>
+    <table name="hd_special_config" schema="" catalog="wholesale" type="TABLE">
+      <column name="sc_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="sc_name" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="sc_id"/>
+    </table>
+    <table name="hd_special_goods" schema="" catalog="wholesale" type="TABLE">
+      <column name="sg_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="sc_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="goods_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="sg_id"/>
+    </table>
+    <table name="hd_type_attr" schema="" catalog="wholesale" type="TABLE">
+      <column name="ta_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="gt_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="ga_id" sqlType="LONGBLOB" precision="2147483647" scale="0" nullable="true" jdbcType="-4"/>
+      <primary-key name="PRIMARY" columns="ta_id"/>
+    </table>
+    <table name="hd_type_goods" schema="" catalog="wholesale" type="TABLE">
+      <column name="tg_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="goods_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="gt_ids" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="true" jdbcType="-1"/>
+      <primary-key name="PRIMARY" columns="tg_id"/>
+    </table>
+    <table name="hd_unit" schema="" catalog="wholesale" type="TABLE">
+      <column name="unit_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="unit_name" sqlType="VARCHAR" precision="32" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="unit_id"/>
+    </table>
+    <table name="hd_user_account" schema="" catalog="wholesale" type="TABLE">
+      <column name="ua_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="user_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="account" sqlType="VARCHAR" precision="25" scale="0" nullable="true" jdbcType="12"/>
+      <column name="bank" sqlType="VARCHAR" precision="60" scale="0" nullable="true" jdbcType="12"/>
+      <column name="branch" sqlType="VARCHAR" precision="60" scale="0" nullable="true" jdbcType="12"/>
+      <column name="is_public" sqlType="VARCHAR" precision="5" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="ua_id"/>
+    </table>
+    <table name="hd_user_address" schema="" catalog="wholesale" type="TABLE">
+      <column name="uad_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="user_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="province_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="city_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="area_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="address" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <column name="postcode" sqlType="VARCHAR" precision="6" scale="0" nullable="true" jdbcType="12"/>
+      <column name="receiver" sqlType="VARCHAR" precision="16" scale="0" nullable="true" jdbcType="12"/>
+      <column name="receiver_phone" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="uad_id"/>
+    </table>
+    <table name="hd_user_balance" schema="" catalog="wholesale" type="TABLE">
+      <column name="ub_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="user_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="last_balance" sqlType="DOUBLE" precision="22" scale="0" nullable="true" jdbcType="8"/>
+      <column name="interest" sqlType="DOUBLE" precision="22" scale="0" nullable="true" jdbcType="8"/>
+      <column name="annual_rate" sqlType="DOUBLE" precision="22" scale="0" nullable="true" jdbcType="8"/>
+      <column name="create_time" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="ub_id"/>
+    </table>
+    <table name="hd_user_collection" schema="" catalog="wholesale" type="TABLE">
+      <column name="uc_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="user_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="goods_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="shop_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="create_time" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="uc_id"/>
+    </table>
+    <table name="hd_user_company" schema="" catalog="wholesale" type="TABLE">
+      <column name="uc_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="user_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="legal_person" sqlType="VARCHAR" precision="16" scale="0" nullable="true" jdbcType="12"/>
+      <column name="company" sqlType="VARCHAR" precision="60" scale="0" nullable="true" jdbcType="12"/>
+      <column name="company_addr" sqlType="VARCHAR" precision="200" scale="0" nullable="true" jdbcType="12"/>
+      <column name="fax" sqlType="VARCHAR" precision="16" scale="0" nullable="true" jdbcType="12"/>
+      <column name="company_scale" sqlType="VARCHAR" precision="32" scale="0" nullable="true" jdbcType="12"/>
+      <column name="reg_capital" sqlType="VARCHAR" precision="32" scale="0" nullable="true" jdbcType="12"/>
+      <column name="com_reg_time" sqlType="VARCHAR" precision="10" scale="0" nullable="true" jdbcType="12"/>
+      <column name="turnover" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="operating_range" sqlType="VARCHAR" precision="40" scale="0" nullable="true" jdbcType="12"/>
+      <column name="industry" sqlType="VARCHAR" precision="40" scale="0" nullable="true" jdbcType="12"/>
+      <column name="oper_range_other" sqlType="VARCHAR" precision="60" scale="0" nullable="true" jdbcType="12"/>
+      <column name="industry_other" sqlType="VARCHAR" precision="60" scale="0" nullable="true" jdbcType="12"/>
+      <column name="advantage" sqlType="VARCHAR" precision="40" scale="0" nullable="true" jdbcType="12"/>
+      <column name="certificate" sqlType="VARCHAR" precision="40" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="uc_id"/>
+    </table>
+    <table name="hd_user_dict" schema="" catalog="wholesale" type="TABLE">
+      <column name="ud_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="ud_type" sqlType="VARCHAR" precision="16" scale="0" nullable="true" jdbcType="12"/>
+      <column name="ud_name" sqlType="VARCHAR" precision="60" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="ud_id"/>
+    </table>
+    <table name="hd_user_level" schema="" catalog="wholesale" type="TABLE">
+      <column name="ul_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="ul_name" sqlType="VARCHAR" precision="16" scale="0" nullable="true" jdbcType="12"/>
+      <column name="level_config" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="ul_id"/>
+    </table>
+    <table name="hd_user_pay_type" schema="" catalog="wholesale" type="TABLE">
+      <column name="upt_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="upt_name" sqlType="VARCHAR" precision="16" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="upt_id"/>
+    </table>
+    <table name="hd_user_statistics" schema="" catalog="wholesale" type="TABLE">
+      <column name="us_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="ip" sqlType="VARCHAR" precision="15" scale="0" nullable="true" jdbcType="12"/>
+      <column name="user_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="ip_province" sqlType="VARCHAR" precision="10" scale="0" nullable="true" jdbcType="12"/>
+      <column name="ip_city" sqlType="VARCHAR" precision="10" scale="0" nullable="true" jdbcType="12"/>
+      <column name="ip_time" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="us_id"/>
+    </table>
+    <table name="hd_user_type" schema="" catalog="wholesale" type="TABLE">
+      <column name="ut_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="ut_name" sqlType="VARCHAR" precision="16" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="ut_id"/>
+    </table>
+    <table name="hd_users" schema="" catalog="wholesale" type="TABLE">
+      <column name="user_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="user_name" sqlType="VARCHAR" precision="16" scale="0" nullable="true" jdbcType="12"/>
+      <column name="real_name" sqlType="VARCHAR" precision="16" scale="0" nullable="true" jdbcType="12"/>
+      <column name="nick_name" sqlType="VARCHAR" precision="16" scale="0" nullable="true" jdbcType="12"/>
+      <column name="password" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <column name="email" sqlType="VARCHAR" precision="60" scale="0" nullable="true" jdbcType="12"/>
+      <column name="sex" sqlType="VARCHAR" precision="6" scale="0" nullable="true" jdbcType="12"/>
+      <column name="birthday" sqlType="VARCHAR" precision="10" scale="0" nullable="true" jdbcType="12"/>
+      <column name="office_phone" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="mobile_phone" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="reg_time" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="last_login" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="last_ip" sqlType="VARCHAR" precision="15" scale="0" nullable="true" jdbcType="12"/>
+      <column name="qq" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="ut_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="upt_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="ul_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
+      <column name="pay_points" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="level_points" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4" def="MA=="/>
+      <column name="qq_id" sqlType="VARCHAR" precision="32" scale="0" nullable="true" jdbcType="12"/>
+      <column name="weixin_id" sqlType="VARCHAR" precision="32" scale="0" nullable="true" jdbcType="12"/>
+      <column name="weibo_id" sqlType="VARCHAR" precision="32" scale="0" nullable="true" jdbcType="12"/>
+      <column name="prestore_money" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="balance_money" sqlType="DOUBLE" precision="22" scale="0" nullable="true" jdbcType="8"/>
+      <column name="user_head" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="user_id"/>
+    </table>
+    <table name="hd_web_footer" schema="" catalog="wholesale" type="TABLE">
+      <column name="wf_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="wf_name" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="wf_content" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="true" jdbcType="-1"/>
+      <primary-key name="PRIMARY" columns="wf_id"/>
+    </table>
+    <table name="sys_gl_qx" schema="" catalog="wholesale" type="TABLE">
+      <column name="GL_ID" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="ROLE_ID" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <column name="FX_QX" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="FW_QX" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="QX1" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="QX2" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="QX3" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="QX4" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="GL_ID"/>
+    </table>
+    <table name="sys_menu" schema="" catalog="wholesale" type="TABLE">
+      <column name="MENU_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="MENU_NAME" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="MENU_URL" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="PARENT_ID" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <column name="MENU_ORDER" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <column name="MENU_ICON" sqlType="VARCHAR" precision="30" scale="0" nullable="true" jdbcType="12"/>
+      <column name="MENU_TYPE" sqlType="VARCHAR" precision="10" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="MENU_ID"/>
+    </table>
+    <table name="sys_role" schema="" catalog="wholesale" type="TABLE">
+      <column name="ROLE_ID" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="ROLE_NAME" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <column name="RIGHTS" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="PARENT_ID" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <column name="ADD_QX" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="DEL_QX" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="EDIT_QX" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="CHA_QX" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="QX_ID" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="ROLE_ID"/>
+    </table>
+    <table name="sys_user" schema="" catalog="wholesale" type="TABLE">
+      <column name="USER_ID" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="USERNAME" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="PASSWORD" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="NAME" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="RIGHTS" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="ROLE_ID" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <column name="LAST_LOGIN" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="IP" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <column name="STATUS" sqlType="VARCHAR" precision="32" scale="0" nullable="true" jdbcType="12"/>
+      <column name="BZ" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="SKIN" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <column name="EMAIL" sqlType="VARCHAR" precision="32" scale="0" nullable="true" jdbcType="12"/>
+      <column name="NUMBER" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <column name="PHONE" sqlType="VARCHAR" precision="32" scale="0" nullable="true" jdbcType="12"/>
+      <column name="as_user_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="as_shop_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="USER_ID"/>
+    </table>
+  </data-source>
+</component>

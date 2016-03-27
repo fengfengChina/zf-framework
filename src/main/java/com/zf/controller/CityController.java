@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @date 16/3/18
  */
 @RestController()
-@RequestMapping(value ="/app/cityList" )
+@RequestMapping(value ="/api/cityList" )
 public class CityController {
 
     @Autowired
