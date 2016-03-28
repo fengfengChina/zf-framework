@@ -29,6 +29,7 @@ public interface UsersRepository extends PagingAndSortingRepository<HdUsers, Int
 
     HdUsers findByUserName(String username);
 
+    HdUsers findByUserId(Integer useid);
 
 //    @Modifying
 //    @Transactional

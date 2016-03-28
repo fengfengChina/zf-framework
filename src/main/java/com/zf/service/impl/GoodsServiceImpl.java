@@ -1,8 +1,9 @@
 package com.zf.service.impl;
 
-import com.zf.base.CommonInterface;
+import com.zf.config.SampleUserDetailsService;
 import com.zf.dao.GoodsCommentRepo;
 import com.zf.dao.GoodsDetailRepo;
+import com.zf.dao.GoodsParamterRepo;
 import com.zf.dao.GoodsRepository;
 import com.zf.domian.HdGoods;
 import com.zf.domian.HdGoodsComment;
@@ -12,21 +13,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.domain.Specification;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
-import org.springframework.data.jpa.repository.support.SimpleJpaRepository;
+import org.springframework.format.datetime.DateFormatter;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Repository;
-
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import javax.transaction.Transactional;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 /**
  * GoodsServiceImpl
@@ -36,13 +32,25 @@ import java.util.List;
  */
 @Component("goodsService")
 @Transactional
-public class GoodsServiceImpl implements GoodsService ,CommonInterface<HdGoodsComment> {
+public class GoodsServiceImpl implements GoodsService {
+    /** 商品详情*/
     @Autowired
     private GoodsDetailRepo goodsDetailRepo;
+
+    /** 商品*/
     @Autowired
     private GoodsRepository goodsRepository;
+
+    /** 商品评论*/
     @Autowired
     private GoodsCommentRepo goodsCommentRepo;
+
+    /**商品属性*/
+    @Autowired
+    private GoodsParamterRepo goodsParamterRepo;
+
+    /**获取用户信息的实体*/
+    @Autowired private SampleUserDetailsService sampleUserDetailsService;
     @Override
     public Page<HdGoods> getGoods(Pageable pageable) {
         return goodsRepository.findAll(pageable);
@@ -60,7 +68,7 @@ public class GoodsServiceImpl implements GoodsService ,CommonInterface<HdGoodsCo
 
     @Override
     public List<HdGoodsParameter> getGoodsParam(Integer goods_id) {
-        return null;
+        return goodsParamterRepo.findByGoodsIdOrderByGpIdAsc(goods_id);
     }
 
 
@@ -70,44 +78,30 @@ public class GoodsServiceImpl implements GoodsService ,CommonInterface<HdGoodsCo
     }
 
     @Override
-    public List<HdGoodsComment> getGoodsComment(Integer pageNum, Integer pageSize,Integer goods_id) {
-        HdGoodsComment hdGoodsComment = new HdGoodsComment();
-        hdGoodsComment.setGoodsId(goods_id);
-        return findBySample(hdGoodsComment,new PageRequest(pageNum,pageSize)).getContent();
-
+    public List<HdGoodsComment> getGoodsComment(Integer goods_id,Integer pageNum, Integer pageSize) {
+        return goodsCommentRepo.findByGoodsIdOrderByGcIdAsc(goods_id, new PageRequest(pageNum - 1, pageSize));
     }
 
+    /**
+     * 批量评价商品
+     * @param comments
+     * @return
+     */
     @Override
-    public Object commentGoodses(ArrayList<HdGoodsComment> comments1) {
-//        return findBySample(new HdGoodsComment().setGoodsId(););
-        return null;
+    public Object commentGoodses(List<HdGoodsComment> comments) {
+//        UserDetails userDetails = sampleUserDetailsService.loadUserByUsername(String.valueOf(comments.get(0).getUserId()));
+        for (HdGoodsComment comment : comments){
+            DateFormatter dateFormatter = new DateFormatter("yyyy-MM-dd HH:mm:ss");
+            comment.setCommentTime(dateFormatter.print(new Date(), Locale.CHINA));
+//            if (userDetails.getUsername()==null){
+//                comment.setUserId(0);
+//            }else{
+                comment.setUserId(0);
+//            }
+        }
+        return goodsCommentRepo.save(comments);
     }
 
-
-    @Override
-    public HdGoodsComment findById(Integer id) {
-        return goodsCommentRepo.findOne(id);
-    }
-
-    @Override
-    public HdGoodsComment findBySample(HdGoodsComment sample) {
-        return null;
-    }
-
-    @Override
-    public List<HdGoodsComment> findAll(Sort sort) {
-        return null;
-    }
-
-    @Override
-    public List<HdGoodsComment> findBySample(HdGoodsComment sample, Sort sort) {
-        return null;
-    }
-
-    @Override
-    public Page<HdGoodsComment> findBySample(HdGoodsComment sample, PageRequest pageRequest) {
-        return null;
-    }
 
     private Specification<HdGoodsComment> whereSpec(final HdGoodsComment sample) {
         return new Specification<HdGoodsComment>() {

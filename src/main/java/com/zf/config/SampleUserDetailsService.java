@@ -24,11 +24,10 @@ public class SampleUserDetailsService implements UserDetailsService {
     }
 
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        HdUsers user = usersService.findByUserName(username);
-
+    public UserDetails loadUserByUsername(String userId) throws UsernameNotFoundException {
+        HdUsers user = usersService.findByUsersId(Integer.valueOf(userId));
         if (user == null) {
-            throw new UsernameNotFoundException("username not found");
+            throw new UsernameNotFoundException("userId not found");
         }
         return new SimpleUserDetails(user);
     }

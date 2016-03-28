@@ -30,7 +30,7 @@ public interface GoodsService {
     Object getGoodsDetail(Integer goods_id);
 
 
-    List<HdGoodsComment> getGoodsComment(Integer pageNum, Integer pageSize, Integer goods_id);
+    List<HdGoodsComment> getGoodsComment(Integer goods_id,Integer pageNum, Integer pageSize);
 
-    Object commentGoodses(ArrayList<HdGoodsComment> comments1);
+    Object commentGoodses(List<HdGoodsComment> comments1);
 }

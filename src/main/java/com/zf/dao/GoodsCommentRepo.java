@@ -1,6 +1,7 @@
 package com.zf.dao;
 
 import com.zf.domian.HdGoodsComment;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
 import java.util.List;
@@ -11,8 +12,8 @@ import java.util.List;
  * @author zf
  * @date 16/3/27
  */
-public interface GoodsCommentRepo  extends PagingAndSortingRepository<HdGoodsComment,Integer>{
+public interface GoodsCommentRepo extends PagingAndSortingRepository<HdGoodsComment,Integer>{
 
 
-    List<HdGoodsComment> findByGoodsId(Integer goodsId);
+    List<HdGoodsComment> findByGoodsIdOrderByGcIdAsc(Integer goodsId,Pageable pageable);
 }

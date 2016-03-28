@@ -62,6 +62,7 @@ public class GoodsController  {
     public Object getGoodsParam(@RequestParam(value = "goods_id")Integer goods_id) throws Exception {
         List<HdGoodsParameter> goodsParam = goodsService.getGoodsParam(goods_id);
         return new Response().success(goodsParam);
+
     }
 
     /**

@@ -21,5 +21,5 @@ public interface UsersService {
 
     boolean addUser( String weixin_id);
 
-    HdUsers findByUserName(String username);
+    HdUsers findByUsersId(Integer user_id);
 }
