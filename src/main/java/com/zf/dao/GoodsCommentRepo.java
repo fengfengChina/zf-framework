@@ -13,7 +13,6 @@ import java.util.List;
  */
 public interface GoodsCommentRepo  extends PagingAndSortingRepository<HdGoodsComment,Integer>{
 
-    Object findByGoods();
 
-    List<HdGoodsComment> findByGoodsId();
+    List<HdGoodsComment> findByGoodsId(Integer goodsId);
 }

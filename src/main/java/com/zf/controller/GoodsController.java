@@ -25,7 +25,7 @@ import java.util.Map;
  * @date 16/3/12
  */
 @RestController()
-@RequestMapping(value ="/api" )
+@RequestMapping(value ="/app" )
 public class GoodsController  {
     @Autowired
     GoodsService goodsService;
@@ -36,7 +36,9 @@ public class GoodsController  {
      */
     @RequestMapping(value = "/getGoodsList/{pageNum}/{pageSize}")
     public Object getGoodsList(@PathVariable Integer pageNum,@PathVariable Integer pageSize){
-        return new Response().success(goodsService.getGoods(new QPageRequest(pageNum, pageSize)).getContent());
+        System.out.print("pageNum ->" + pageNum +" "+ "pageSize->" + pageSize);
+        Response response = new Response().success(goodsService.getGoods(new QPageRequest(pageNum - 1, pageSize)).getContent());
+        return response;
     }
 
     /**

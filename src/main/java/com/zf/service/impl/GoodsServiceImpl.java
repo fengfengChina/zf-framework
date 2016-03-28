@@ -43,10 +43,6 @@ public class GoodsServiceImpl implements GoodsService ,CommonInterface<HdGoodsCo
     private GoodsRepository goodsRepository;
     @Autowired
     private GoodsCommentRepo goodsCommentRepo;
-    @Autowired
-    JpaRepository<HdGoodsComment,Integer> jpaRepository;
-    @Autowired
-    SimpleJpaRepository<HdGoodsComment,Integer> simpleJpaRepository;
     @Override
     public Page<HdGoods> getGoods(Pageable pageable) {
         return goodsRepository.findAll(pageable);
@@ -58,9 +54,8 @@ public class GoodsServiceImpl implements GoodsService ,CommonInterface<HdGoodsCo
     }
 
     @Override
-    public Page<HdGoods> getSearchGoods(String keyword) {
-        goodsRepository.findByGoodsName();
-        return null;
+    public List<HdGoods> getSearchGoods(String keyword,Integer pageNum, Integer pageSize) {
+        return goodsRepository.findByGoodsName(keyword,new PageRequest(pageNum,pageSize));
     }
 
     @Override
@@ -91,7 +86,7 @@ public class GoodsServiceImpl implements GoodsService ,CommonInterface<HdGoodsCo
 
     @Override
     public HdGoodsComment findById(Integer id) {
-        return jpaRepository.findOne(id);
+        return goodsCommentRepo.findOne(id);
     }
 
     @Override
@@ -111,7 +106,7 @@ public class GoodsServiceImpl implements GoodsService ,CommonInterface<HdGoodsCo
 
     @Override
     public Page<HdGoodsComment> findBySample(HdGoodsComment sample, PageRequest pageRequest) {
-        return simpleJpaRepository.findAll(whereSpec(sample),pageRequest);
+        return null;
     }
 
     private Specification<HdGoodsComment> whereSpec(final HdGoodsComment sample) {

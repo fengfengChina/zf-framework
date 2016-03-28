@@ -23,7 +23,7 @@ public interface GoodsService {
 
     HdGoods getGoodsInfoById(Integer id);
 
-    Page<HdGoods> getSearchGoods(String keyword);
+    List<HdGoods> getSearchGoods(String keyword,Integer pageNum , Integer pageSize);
 
     List<HdGoodsParameter> getGoodsParam(Integer goods_id);
 
