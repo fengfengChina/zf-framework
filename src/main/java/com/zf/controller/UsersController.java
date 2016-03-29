@@ -5,6 +5,8 @@ import com.zf.base.Response;
 import com.zf.domian.HdUsers;
 import com.zf.service.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.util.Base64Utils;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,10 +24,11 @@ import java.security.Principal;
  * @date 16/3/20
  */
 @RestController
-@RequestMapping("/api/user")
+@RequestMapping("/api/")
 public class UsersController {
     @Autowired
     UsersService usersService;
+
 
     /**
      * rest test, return name
@@ -40,30 +43,28 @@ public class UsersController {
     /**
      * 登录
      *
-     * @param userName
+     * @param mobilePhone
      * @param password
-     * @param session
      * @return
      */
-    @RequestMapping("/login/{userName}/{password}")
-    public Object userLogin(@PathVariable String userName, @PathVariable String password, HttpSession session) {
-        HdUsers users = usersService.login(userName, password);
+    @RequestMapping("/login")
+    public Object userLogin(@RequestParam(value = "mobilePhone") String mobilePhone, @RequestParam(value = "password") String password) {
+        HdUsers users = usersService.login(mobilePhone, password);
         if (users != null) {
-            session.setAttribute("user", users);
+            return  new Response().success(users);
         }
-        return users;
+        return new Response().failure("不存在该用户");
     }
 
     /**
-     * 修改个人信息
-     *
+     * 修改用户名或密ma
      * @param old_password
      * @param password
      * @param session
      * @return
      */
-    @RequestMapping("/motifyUsers/{mobile_phone}/{password}")
-    public Object motifyUsers(@PathVariable String old_password, @PathVariable String password, HttpSession session) {
+    @RequestMapping("/motifyUsers")
+    public Object motifyUsers(@RequestParam(value ="mobile_phone") String old_password, @RequestParam("password") String password, HttpSession session) {
         HdUsers users = usersService.motifyUserPassword(old_password, new String(Base64Utils.decodeFromString(password)));
         if (users != null) {
             return new Response().success(users);
@@ -74,25 +75,44 @@ public class UsersController {
 
 
     /**
+     * 修改用户信息
+     * @param userName
+     * @param realName
+     * @param nickName
+     * @param email
+     * @param sex
+     * @param birthday
+     * @param mobilePhone
+     * @param regTime
+     * @param userHead
+     * @return
+     */
+    @RequestMapping("/motifyUsersInfo")
+    public Object motifyUsersinfo(String userName,String realName,String nickName,String email,String sex,String birthday,String mobilePhone,String regTime,String userHead) {
+        HdUsers users = usersService.motifyUserInfo(userName, realName, nickName, email, sex, birthday, mobilePhone, regTime, userHead);
+        if (users != null) {
+            return new Response().success(users);
+        } else {
+            return new Response().failure("修改失败");
+        }
+    }
+
+    /**
      * 注册用户
      *
      * @param mobile_phone
      * @param password
-     * @param session
      * @return
      */
-    @RequestMapping("/registerUsers/{mobile_phone}/{password}/{code}/")
-    public Object registerUsers(@PathVariable String mobile_phone, @PathVariable String password, HttpSession session, @PathVariable String code) throws IOException {
-        if (session.getAttribute("code").equals(code)) {
+    @RequestMapping("/registerUsers")
+    public Object registerUsers(@RequestParam(value ="mobile_phone" ) String mobile_phone
+            , @RequestParam(value ="password" )  String password, @RequestParam(value = "code") String code) throws IOException {
             HdUsers hdUsers = usersService.registerUsers(mobile_phone, password);
             if (hdUsers != null) {
                 return new Response().success();
             } else {
                 return new Response().failure("用户已经存在");
             }
-        } else {
-            return new Response().failure("验证码错误");
-        }
     }
 
     /**

@@ -1,9 +1,12 @@
 package com.zf.service.impl;
 
+import com.zf.config.SimpleUserDetails;
 import com.zf.dao.UsersRepository;
 import com.zf.domian.HdUsers;
 import com.zf.service.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Component;
 import org.springframework.util.Assert;
 
@@ -21,6 +24,7 @@ public class UsersServiceImpl implements UsersService {
     @Autowired
     UsersRepository usersRepository;
 
+    @Autowired SimpleUserDetails simpleUserDetails;
     /**
      * 用户登录
      * @param mobile_phone
@@ -39,12 +43,12 @@ public class UsersServiceImpl implements UsersService {
         return usersRepository.save(new HdUsers(mobile_phone, password));
     }
 
-
     @Override
-    public HdUsers motifyUserPassword(String mobile_phone, String password) {
-//        return usersRepository.updatePasswordByMobilePhone(password,mobile_phone);
-        return new HdUsers();
+    public HdUsers motifyUserPassword(String old_password, String password) {
+        return null;
     }
+
+
 
     @Override
     public HdUsers weChatLogin(String weixin_id) {
@@ -71,6 +75,16 @@ public class UsersServiceImpl implements UsersService {
         return usersRepository.findByUserId(userId);
     }
 
+
+    @Override
+    public HdUsers motifyUserInfo(String userName, String realName, String nickName, String email, String sex, String birthday, String mobilePhone, String regTime, String userHead) {
+        return null;
+    }
+
+    @Override
+    public HdUsers findByUserName(String username) {
+        return usersRepository.findByUserName(username);
+    }
 
 
 }

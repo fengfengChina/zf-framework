@@ -30,7 +30,7 @@ public class SimpleUserDetails implements UserDetails {
 
     @Override
     public String getUsername() {
-        return String.valueOf(user.getUserId());
+        return user.getUserName();
     }
 
     @Override
