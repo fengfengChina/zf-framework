@@ -20,3 +20,7 @@ you can get token like this:
 
 and second you can get resource from secured API like:
 > `curl localhost:8090/api/user/name -H "Authorization:bearer ef66bdda-d674-4a13-b491-9a20e075823c"`
+
+# use SpringLoaded in idea
+1. auto make or make project
+2. gradle bootRun...

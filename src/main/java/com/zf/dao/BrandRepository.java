@@ -11,6 +11,5 @@ import org.springframework.data.repository.PagingAndSortingRepository;
  * @date 16/3/19
  */
 public interface BrandRepository extends PagingAndSortingRepository<HdBrand, Integer> {
-
     Object findByGtIdOrderByBrandIdDesc(Integer gt_id);
 }

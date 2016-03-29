@@ -1,15 +1,20 @@
 package com.zf.controller;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.zf.base.Response;
 import com.zf.domian.HdGoods;
+import com.zf.domian.HdGoodsComment;
 import com.zf.domian.HdGoodsParameter;
 import com.zf.service.GoodsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.querydsl.QPageRequest;
+import org.springframework.security.oauth2.common.util.Jackson2JsonParser;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.websocket.server.PathParam;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -31,7 +36,9 @@ public class GoodsController  {
      */
     @RequestMapping(value = "/getGoodsList/{pageNum}/{pageSize}")
     public Object getGoodsList(@PathVariable Integer pageNum,@PathVariable Integer pageSize){
-        return goodsService.getGoods(new QPageRequest(pageNum,pageSize)).getContent();
+        System.out.print("pageNum ->" + pageNum +" "+ "pageSize->" + pageSize);
+        Response response = new Response().success(goodsService.getGoods(new QPageRequest(pageNum - 1, pageSize)).getContent());
+        return response;
     }
 
     /**
@@ -40,7 +47,7 @@ public class GoodsController  {
      * @return
      */
     @RequestMapping(value = "getGoodsInfo")
-    public Object getGoodsInfo(@RequestParam Integer goods_id) throws Exception {
+    public Object getGoodsInfo(@RequestParam(value = "goods_id") Integer goods_id) throws Exception {
         HdGoods hdGoods = goodsService.getGoodsInfoById(goods_id);
         return new Response().success(hdGoods);
     }
@@ -52,9 +59,10 @@ public class GoodsController  {
      */
     @RequestMapping(value = "getGoodsParam", method = RequestMethod.POST)
     @ResponseBody
-    public Object getGoodsParam(@RequestParam Integer goods_id) throws Exception {
+    public Object getGoodsParam(@RequestParam(value = "goods_id")Integer goods_id) throws Exception {
         List<HdGoodsParameter> goodsParam = goodsService.getGoodsParam(goods_id);
         return new Response().success(goodsParam);
+
     }
 
     /**
@@ -63,10 +71,8 @@ public class GoodsController  {
      */
     @RequestMapping(value = "getGoodsDetail", method = RequestMethod.POST)
     @ResponseBody
-    public Object getGoodsDetail() throws Exception {
-//        List<> = goodsService.getGoodsDetail(pd);
-//        return AppUtil.returnObject(pd, map);
-        return null;
+    public Object getGoodsDetail(@RequestParam(value = "goods_id") Integer goods_id) throws Exception {
+        return new Response().success(goodsService.getGoodsDetail(goods_id));
     }
 
     /**
@@ -76,12 +82,8 @@ public class GoodsController  {
      */
     @RequestMapping(value = "getGoodsComment", method = RequestMethod.POST)
     @ResponseBody
-    public Object getGoodsComment() throws Exception {
-//        logBefore(logger, "获取商品评论");
-//        PageData pd = this.getPageData();
-//        Map<String, Object> map = goodsService.getGoodsComment(pd);
-//        return AppUtil.returnObject(pd, map);
-        return null;
+    public Object getGoodsComment(@RequestParam(value = "goods_id") Integer goods_id,@RequestParam(value = "pageNum") Integer pageNum, @RequestParam Integer pageSize) throws Exception {
+        return new Response().success(goodsService.getGoodsComment(goods_id,pageNum,pageSize));
     }
 
     /**
@@ -89,11 +91,8 @@ public class GoodsController  {
      */
     @RequestMapping(value = "/commentGoodses", method = RequestMethod.POST)
     @ResponseBody
-    public Object commentGoodses() throws Exception {
-//        logBefore(logger, "批量评论商品");
-//        PageData pd = this.getPageData();
-//        Map<String, Object> map = goodsService.commentGoodses(pd);
-//        return AppUtil.returnObject(pd, map);
-        return null;
+    public Object commentGoodses(@RequestParam(value = "goodsComments") String comments) throws Exception {
+        ArrayList<HdGoodsComment> comments1 = new ObjectMapper().readValue(comments, new TypeReference<ArrayList<HdGoodsComment>>(){});
+        return new Response().success(goodsService.commentGoodses(comments1));
     }
 }

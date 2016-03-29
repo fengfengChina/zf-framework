@@ -21,5 +21,9 @@ public interface UsersService {
 
     boolean addUser( String weixin_id);
 
+    HdUsers findByUsersId(Integer user_id);
+
+    HdUsers motifyUserInfo(String userName, String realName, String nickName, String email, String sex, String birthday, String mobilePhone, String regTime, String userHead);
+
     HdUsers findByUserName(String username);
 }

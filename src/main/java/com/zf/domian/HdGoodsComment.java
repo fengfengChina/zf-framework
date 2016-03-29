@@ -16,8 +16,9 @@ public class HdGoodsComment {
     private Integer userId;
     private String comment;
     private String commentType;
-    private String gcReply;
-    private Integer replyUserId;
+    private String commentTime;
+    private String replyName;
+    private Integer replyComment;
 
     @Id
     @Column(name = "gc_id", nullable = false, insertable = true, updatable = true)
@@ -27,6 +28,34 @@ public class HdGoodsComment {
 
     public void setGcId(int gcId) {
         this.gcId = gcId;
+    }
+    @Basic
+    @Column(name = "comment_time", nullable = true, insertable = true, updatable = true, length = 2147483647)
+    public String getCommentTime() {
+        return commentTime;
+    }
+
+    public void setCommentTime(String commentTime) {
+        this.commentTime = commentTime;
+    }
+
+    @Basic
+    @Column(name = "reply_name", nullable = true, insertable = true, updatable = true, length = 2147483647)
+    public String getReplyName() {
+        return replyName;
+    }
+
+    public void setReplyName(String replyName) {
+        this.replyName = replyName;
+    }
+    @Basic
+    @Column(name = "reply_comment", nullable = true, insertable = true, updatable = true, length = 2147483647)
+    public Integer getReplyComment() {
+        return replyComment;
+    }
+
+    public void setReplyComment(Integer replyComment) {
+        this.replyComment = replyComment;
     }
 
     @Basic
@@ -69,53 +98,38 @@ public class HdGoodsComment {
         this.commentType = commentType;
     }
 
-    @Basic
-    @Column(name = "gc_reply", nullable = true, insertable = true, updatable = true, length = 2147483647)
-    public String getGcReply() {
-        return gcReply;
-    }
-
-    public void setGcReply(String gcReply) {
-        this.gcReply = gcReply;
-    }
-
-    @Basic
-    @Column(name = "reply_user_id", nullable = true, insertable = true, updatable = true)
-    public Integer getReplyUserId() {
-        return replyUserId;
-    }
-
-    public void setReplyUserId(Integer replyUserId) {
-        this.replyUserId = replyUserId;
-    }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (!(o instanceof HdGoodsComment)) return false;
 
         HdGoodsComment that = (HdGoodsComment) o;
 
-        if (gcId != that.gcId) return false;
-        if (goodsId != null ? !goodsId.equals(that.goodsId) : that.goodsId != null) return false;
-        if (userId != null ? !userId.equals(that.userId) : that.userId != null) return false;
-        if (comment != null ? !comment.equals(that.comment) : that.comment != null) return false;
-        if (commentType != null ? !commentType.equals(that.commentType) : that.commentType != null) return false;
-        if (gcReply != null ? !gcReply.equals(that.gcReply) : that.gcReply != null) return false;
-        if (replyUserId != null ? !replyUserId.equals(that.replyUserId) : that.replyUserId != null) return false;
+        if (getGcId() != that.getGcId()) return false;
+        if (getGoodsId() != null ? !getGoodsId().equals(that.getGoodsId()) : that.getGoodsId() != null) return false;
+        if (getUserId() != null ? !getUserId().equals(that.getUserId()) : that.getUserId() != null) return false;
+        if (getComment() != null ? !getComment().equals(that.getComment()) : that.getComment() != null) return false;
+        if (getCommentType() != null ? !getCommentType().equals(that.getCommentType()) : that.getCommentType() != null)
+            return false;
+        if (getCommentTime() != null ? !getCommentTime().equals(that.getCommentTime()) : that.getCommentTime() != null)
+            return false;
+        if (getReplyName() != null ? !getReplyName().equals(that.getReplyName()) : that.getReplyName() != null)
+            return false;
+        return !(getReplyComment() != null ? !getReplyComment().equals(that.getReplyComment()) : that.getReplyComment() != null);
 
-        return true;
     }
 
     @Override
     public int hashCode() {
-        int result = gcId;
-        result = 31 * result + (goodsId != null ? goodsId.hashCode() : 0);
-        result = 31 * result + (userId != null ? userId.hashCode() : 0);
-        result = 31 * result + (comment != null ? comment.hashCode() : 0);
-        result = 31 * result + (commentType != null ? commentType.hashCode() : 0);
-        result = 31 * result + (gcReply != null ? gcReply.hashCode() : 0);
-        result = 31 * result + (replyUserId != null ? replyUserId.hashCode() : 0);
+        int result = getGcId();
+        result = 31 * result + (getGoodsId() != null ? getGoodsId().hashCode() : 0);
+        result = 31 * result + (getUserId() != null ? getUserId().hashCode() : 0);
+        result = 31 * result + (getComment() != null ? getComment().hashCode() : 0);
+        result = 31 * result + (getCommentType() != null ? getCommentType().hashCode() : 0);
+        result = 31 * result + (getCommentTime() != null ? getCommentTime().hashCode() : 0);
+        result = 31 * result + (getReplyName() != null ? getReplyName().hashCode() : 0);
+        result = 31 * result + (getReplyComment() != null ? getReplyComment().hashCode() : 0);
         return result;
     }
 }

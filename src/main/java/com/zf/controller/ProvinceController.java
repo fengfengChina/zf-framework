@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @date 16/3/19
  */
 @RestController()
-@RequestMapping("/app")
+@RequestMapping("/api")
 public class ProvinceController {
     @Autowired
     ProvinceService provinceService;

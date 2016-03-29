@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @date 16/3/20
  */
 @RestController()
-@RequestMapping(value ="/app/goodsActivity/" )
+@RequestMapping(value ="/api/goodsActivity/" )
 public class GoodsKeywordsController {
 
 }
