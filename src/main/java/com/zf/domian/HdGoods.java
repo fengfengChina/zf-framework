@@ -1,8 +1,11 @@
 package com.zf.domian;
 
-import javax.persistence.Basic;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
+import javax.persistence.*;
+import java.io.Serializable;
+import java.util.*;
 
 /**
  * HdGoods
@@ -12,17 +15,36 @@ import javax.persistence.Id;
  */
 @Entity
 @javax.persistence.Table(name = "hd_goods", schema = "", catalog = "wholesale")
-public class HdGoods {
+public class HdGoods implements Serializable{
+
     private Integer goodsId;
 
     @Id
     @javax.persistence.Column(name = "goods_id", nullable = false, insertable = true, updatable = true)
-    public int getGoodsId() {
+    public Integer getGoodsId() {
         return goodsId;
     }
 
-    public void setGoodsId(int goodsId) {
+    public void setGoodsId(Integer goodsId) {
         this.goodsId = goodsId;
+    }
+
+    private Set<HdGoodsImg> goodsImgs;
+
+    public HdGoods() {
+        goodsImgs = new HashSet<>();
+    }
+
+
+
+    @OneToMany(mappedBy = "goodsId",targetEntity = HdGoodsImg.class,cascade = CascadeType.ALL)
+    @LazyCollection(LazyCollectionOption.EXTRA)
+    public Set<HdGoodsImg> getGoodsImgs() {
+        return goodsImgs;
+    }
+
+    public void setGoodsImgs(Set<HdGoodsImg> goodsImgs) {
+        this.goodsImgs = goodsImgs;
     }
 
     private String goodsSn;
@@ -265,62 +287,4 @@ public class HdGoods {
         this.remark = remark;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        HdGoods hdGoods = (HdGoods) o;
-
-        if (goodsId != hdGoods.goodsId) return false;
-        if (goodsSn != null ? !goodsSn.equals(hdGoods.goodsSn) : hdGoods.goodsSn != null) return false;
-        if (goodsName != null ? !goodsName.equals(hdGoods.goodsName) : hdGoods.goodsName != null) return false;
-        if (brandId != null ? !brandId.equals(hdGoods.brandId) : hdGoods.brandId != null) return false;
-        if (shopId != null ? !shopId.equals(hdGoods.shopId) : hdGoods.shopId != null) return false;
-        if (provinceId != null ? !provinceId.equals(hdGoods.provinceId) : hdGoods.provinceId != null) return false;
-        if (goodsSource != null ? !goodsSource.equals(hdGoods.goodsSource) : hdGoods.goodsSource != null) return false;
-        if (marketPrice != null ? !marketPrice.equals(hdGoods.marketPrice) : hdGoods.marketPrice != null) return false;
-        if (standardPrice != null ? !standardPrice.equals(hdGoods.standardPrice) : hdGoods.standardPrice != null)
-            return false;
-        if (unitId != null ? !unitId.equals(hdGoods.unitId) : hdGoods.unitId != null) return false;
-        if (isReal != null ? !isReal.equals(hdGoods.isReal) : hdGoods.isReal != null) return false;
-        if (isOnSale != null ? !isOnSale.equals(hdGoods.isOnSale) : hdGoods.isOnSale != null) return false;
-        if (goodsPoint != null ? !goodsPoint.equals(hdGoods.goodsPoint) : hdGoods.goodsPoint != null) return false;
-        if (createUser != null ? !createUser.equals(hdGoods.createUser) : hdGoods.createUser != null) return false;
-        if (createTime != null ? !createTime.equals(hdGoods.createTime) : hdGoods.createTime != null) return false;
-        if (updateUser != null ? !updateUser.equals(hdGoods.updateUser) : hdGoods.updateUser != null) return false;
-        if (updateTime != null ? !updateTime.equals(hdGoods.updateTime) : hdGoods.updateTime != null) return false;
-        if (isDelete != null ? !isDelete.equals(hdGoods.isDelete) : hdGoods.isDelete != null) return false;
-        if (auditStep != null ? !auditStep.equals(hdGoods.auditStep) : hdGoods.auditStep != null) return false;
-        if (auditUser != null ? !auditUser.equals(hdGoods.auditUser) : hdGoods.auditUser != null) return false;
-        if (remark != null ? !remark.equals(hdGoods.remark) : hdGoods.remark != null) return false;
-
-        return true;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = goodsId;
-        result = 31 * result + (goodsSn != null ? goodsSn.hashCode() : 0);
-        result = 31 * result + (goodsName != null ? goodsName.hashCode() : 0);
-        result = 31 * result + (brandId != null ? brandId.hashCode() : 0);
-        result = 31 * result + (shopId != null ? shopId.hashCode() : 0);
-        result = 31 * result + (provinceId != null ? provinceId.hashCode() : 0);
-        result = 31 * result + (goodsSource != null ? goodsSource.hashCode() : 0);
-        result = 31 * result + (marketPrice != null ? marketPrice.hashCode() : 0);
-        result = 31 * result + (standardPrice != null ? standardPrice.hashCode() : 0);
-        result = 31 * result + (unitId != null ? unitId.hashCode() : 0);
-        result = 31 * result + (isReal != null ? isReal.hashCode() : 0);
-        result = 31 * result + (isOnSale != null ? isOnSale.hashCode() : 0);
-        result = 31 * result + (goodsPoint != null ? goodsPoint.hashCode() : 0);
-        result = 31 * result + (createUser != null ? createUser.hashCode() : 0);
-        result = 31 * result + (createTime != null ? createTime.hashCode() : 0);
-        result = 31 * result + (updateUser != null ? updateUser.hashCode() : 0);
-        result = 31 * result + (updateTime != null ? updateTime.hashCode() : 0);
-        result = 31 * result + (isDelete != null ? isDelete.hashCode() : 0);
-        result = 31 * result + (auditStep != null ? auditStep.hashCode() : 0);
-        result = 31 * result + (auditUser != null ? auditUser.hashCode() : 0);
-        result = 31 * result + (remark != null ? remark.hashCode() : 0);
-        return result;
-    }
 }

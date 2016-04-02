@@ -15,7 +15,6 @@ import javax.persistence.PersistenceContext;
  * @author zf
  * @date 16/3/19
  */
-@Transactional(readOnly = true)
 public interface UsersRepository extends PagingAndSortingRepository<HdUsers, Integer> {
 
 

@@ -15,8 +15,8 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.format.datetime.DateFormatter;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
+
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;

@@ -24,7 +24,6 @@ public class UsersServiceImpl implements UsersService {
     @Autowired
     UsersRepository usersRepository;
 
-    @Autowired SimpleUserDetails simpleUserDetails;
     /**
      * 用户登录
      * @param mobile_phone
