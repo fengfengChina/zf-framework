@@ -4,6 +4,7 @@ import com.zf.service.CityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -13,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @date 16/3/18
  */
 @RestController()
-@RequestMapping(value ="/api/cityList" )
+@RequestMapping(value ="/api" )
 public class CityController {
 
     @Autowired
@@ -24,11 +25,9 @@ public class CityController {
      *
      * @return
      */
-    @RequestMapping(value = "/{province_id}")
-    public Object getGoodsList(@PathVariable int province_id){
+    @RequestMapping(value = "/getCity")
+    public Object getGoodsList(@RequestParam int province_id){
         return cityService.findCityByProvince(province_id);
     }
-
-
 
 }

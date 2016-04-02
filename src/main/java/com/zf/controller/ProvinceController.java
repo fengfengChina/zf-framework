@@ -17,7 +17,11 @@ public class ProvinceController {
     @Autowired
     ProvinceService provinceService;
 
-    @RequestMapping("/provinceAll")
+    /**
+     * 获取省份信息
+     * @return
+     */
+    @RequestMapping("/getProvince")
     public Object provinceAll(){
         return provinceService.findProvinceAll();
     }
